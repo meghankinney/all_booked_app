@@ -9,15 +9,15 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Started on</th>
-        <th>User</th>
+        <th>Month</th>
+        <th>Host</th>
         <th>Actions</th>
       </tr>
 
       <% @months.each do |month| %>
       <tr>
-        <td><%= month.started_on %></td>
-        <td><%= month.user_id %></td>
+        <td><%= month.started_on.strftime("%B %Y") %></td>
+        <td><%= month.user.email %></td>
         <td>
           <a href="/months/<%= month.id %>" class="btn btn-primary">Show</a>
           <a href="/months/<%= month.id %>/edit" class="btn btn-warning">Edit</a>

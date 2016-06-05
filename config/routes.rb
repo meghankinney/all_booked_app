@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  
+
   root "books#index"
-  
+
   # Routes for the Book resource:
   # CREATE
   get "/books/new", :controller => "books", :action => "new"
@@ -86,6 +86,10 @@ Rails.application.routes.draw do
   # DELETE
   get "/delete_nomination/:id", :controller => "nominations", :action => "destroy"
   #------------------------------
+
+  get "/users", :controller => "users", :action => "index"
+
+  
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

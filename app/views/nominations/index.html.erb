@@ -22,6 +22,62 @@
           <a href="/nominations/<%= nomination.id %>" class="btn btn-primary">Show</a>
           <a href="/nominations/<%= nomination.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_nomination/<%= nomination.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+
+
+    <!-- Trying different code for vote-->
+
+
+          <% vote = Vote.find_by(:nomination_id => nomination.id, :user_id => current_user.id) %>
+          <% if vote.present? %>
+            <a href="/delete_vote/<%= vote.id %>" class="btn btn-link">
+              <i class="fa fa-heart"></i>
+            </a>
+
+            
+          <% else %>
+
+ <form action="/create_vote" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for nomination_id -->
+
+        <input type="hidden" name="nomination_id" value="<%= nomination.id %>">
+
+
+      <!-- Label and input for user_id -->
+
+
+        <input type="hidden" name="user_id" value="<%= current_user.id %>">
+              <button class="btn btn-link">
+                <i class="fa fa-heart-o"></i>
+              </button>
+
+
+              <% end %>
+            </form>
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </td>
       </tr>
       <% end %>

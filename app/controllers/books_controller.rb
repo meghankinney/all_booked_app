@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   
   def index
     @books = Book.all
+    @month = Month.all
   end
 
   def show

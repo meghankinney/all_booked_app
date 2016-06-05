@@ -30,6 +30,33 @@
           <a href="/books/<%= book.id %>" class="btn btn-primary">Show</a>
           <a href="/books/<%= book.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_book/<%= book.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+
+
+  <form action="/create_nomination" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for book_id -->
+
+
+     <input type="hidden" name="book_id" value="<%= book.id %>">
+
+
+      <!-- Label and input for month_id -->
+  <input type="hidden" name="month_id" value="<%= @month.last.id %>">
+
+      <button class="btn btn-default">
+        Create Nomination
+      </button>
+
+          </form>
+
+
+
+
+
+
+
         </td>
       </tr>
       <% end %>

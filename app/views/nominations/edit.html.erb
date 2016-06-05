@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @nomination.errors.any? %>
+  <% @nomination.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Nomination #<%= @nomination.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_nomination/<%= @nomination.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for book_id -->
+      <div class="form-group">
+        <label for="book_id" class="control-label">
+          Book
+        </label>
+
+        <input type="text" id="book_id" name="book_id" placeholder="Book" class="form-control" value="<%= @nomination.book_id %>">
+      </div>
+
+      <!-- Label and input for month_id -->
+      <div class="form-group">
+        <label for="month_id" class="control-label">
+          Month
+        </label>
+
+        <input type="text" id="month_id" name="month_id" placeholder="Month" class="form-control" value="<%= @nomination.month_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Nomination
+      </button>
+      or
+      <a href="/nominations/<%= @nomination.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

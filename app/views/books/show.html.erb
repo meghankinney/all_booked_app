@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h3>Book #<%= @book.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>User</dt>
+      <dd><%= @book.user_id %></dd>
+
+      <dt>Page number</dt>
+      <dd><%= @book.page_number %></dd>
+
+      <dt>Description</dt>
+      <dd><%= @book.description %></dd>
+
+      <dt>Author</dt>
+      <dd><%= @book.author %></dd>
+
+      <dt>Title</dt>
+      <dd><%= @book.title %></dd>
+
+      <dt>Cover url</dt>
+      <dd><%= @book.cover_url %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/books" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/books/<%= @book.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_book/<%= @book.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

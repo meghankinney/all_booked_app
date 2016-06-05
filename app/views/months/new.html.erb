@@ -1,0 +1,43 @@
+<!-- Validation failure messages -->
+<% if @month.errors.any? %>
+  <% @month.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Month</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_month" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for started_on -->
+      <div class="form-group">
+        <label for="started_on" class="control-label">
+          Started on
+        </label>
+
+        <input type="text" id="started_on" name="started_on" placeholder="Started on" class="form-control" value="<%= @month.started_on %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+    
+
+        <input type="hidden" name="user_id"  value="<%= current_user.id %>">
+   
+
+      <button class="btn btn-success">
+        Create Month
+      </button>
+      or
+      <a href="/months">Cancel</a>
+    </form>
+  </div>
+</div>

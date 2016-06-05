@@ -16,8 +16,8 @@
 
       <% @nominations.each do |nomination| %>
       <tr>
-        <td><%= nomination.book_id %></td>
-        <td><%= nomination.month_id %></td>
+        <td><%= nomination.book.title %></td>
+        <td><%= nomination.month.started_on.strftime("%B %Y") %></td>
         <td>
           <a href="/nominations/<%= nomination.id %>" class="btn btn-primary">Show</a>
           <a href="/nominations/<%= nomination.id %>/edit" class="btn btn-warning">Edit</a>

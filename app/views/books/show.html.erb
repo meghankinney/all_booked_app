@@ -6,7 +6,7 @@
   <div class="col-md-12">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @book.user_id %></dd>
+      <dd><%= @book.user.username %></dd>
 
       <dt>Page number</dt>
       <dd><%= @book.page_number %></dd>
@@ -21,7 +21,7 @@
       <dd><%= @book.title %></dd>
 
       <dt>Cover url</dt>
-      <dd><%= @book.cover_url %></dd>
+      <dd><img src="<%= @book.cover_url %>"></dd>
 
     </dl>
 

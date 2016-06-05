@@ -24,7 +24,9 @@
           Book
         </label>
 
-        <input type="text" id="book_id" name="book_id" placeholder="Book" class="form-control" value="<%= @nomination.book_id %>">
+         <div >
+      <%= select_tag(:book_id, options_from_collection_for_select(Book.all, :id, :title), :class => "form-control") %>
+    </div>
       </div>
 
       <!-- Label and input for month_id -->
@@ -33,7 +35,7 @@
           Month
         </label>
 
-        <input type="text" id="month_id" name="month_id" placeholder="Month" class="form-control" value="<%= @nomination.month_id %>">
+          <%= select_tag(:month_id, options_from_collection_for_select(Month.all, :id, :started_on), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">

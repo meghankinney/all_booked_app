@@ -32,6 +32,39 @@
           <a href="/delete_book/<%= book.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
 
 
+<!-- Trying code for nominate-->
+
+   <td>
+          <% nomination = Nomination.find_by(:book_id => book.id, :month_id => @month.last.id) %>
+          <% if nomination.present? %>
+            <a href="/delete_nomination/<%= nomination.id %>" class="btn btn-default">
+             Delete Nomination for <%=@month.last.started_on.strftime("%B %Y")%>
+            </a>
+
+
+          <% else %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <form action="/create_nomination" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
@@ -46,9 +79,9 @@
   <input type="hidden" name="month_id" value="<%= @month.last.id %>">
 
       <button class="btn btn-success">
-        Create Nomination
+        Nominate this book for <%=@month.last.started_on.strftime("%B %Y")%>
       </button>
-
+<% end %>
           </form>
 
 

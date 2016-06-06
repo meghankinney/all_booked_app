@@ -17,7 +17,7 @@ class NominationsController < ApplicationController
     @nomination.month_id = params[:month_id]
 
     if @nomination.save
-      redirect_to "/nominations", :notice => "Nomination created successfully."
+      redirect_to :back, :notice => "Nomination created successfully."
     else
       render 'new'
     end
@@ -34,7 +34,7 @@ class NominationsController < ApplicationController
     @nomination.month_id = params[:month_id]
 
     if @nomination.save
-      redirect_to "/nominations", :notice => "Nomination updated successfully."
+      redirect_to :back, :notice => "Nomination updated successfully."
     else
       render 'edit'
     end

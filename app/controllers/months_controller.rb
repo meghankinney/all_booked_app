@@ -5,6 +5,7 @@ class MonthsController < ApplicationController
 
   def show
     @month = Month.find(params[:id])
+    @nomination = Nomination.all
   end
 
   def new

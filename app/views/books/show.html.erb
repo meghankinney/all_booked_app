@@ -1,27 +1,37 @@
 <div class="page-header">
-  <h3>Book #<%= @book.id %></h3>
+  <h3><%= @book.title %></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
-      <dt>User</dt>
-      <dd><%= @book.user.username %></dd>
-
-      <dt>Page number</dt>
-      <dd><%= @book.page_number %></dd>
-
-      <dt>Description</dt>
-      <dd><%= @book.description %></dd>
-
-      <dt>Author</dt>
-      <dd><%= @book.author %></dd>
+      <dt>Cover</dt>
+      <dd><img src="<%= @book.cover_url%>" width="300"></dd>
 
       <dt>Title</dt>
       <dd><%= @book.title %></dd>
 
-      <dt>Cover url</dt>
-      <dd><img src="<%= @book.cover_url %>"></dd>
+      <dt>Author</dt>
+      <dd><%= @book.author %></dd>
+
+      <dt>Description</dt>
+      <dd><%= @book.description %></dd>
+
+      <dt>Pages</dt>
+      <dd><%= @book.page_number %></dd>
+
+
+      <dt>Nominated By</dt>
+      <dd><%= @book.user.username %></dd>
+
+
+
+
+
+
+
+
+
 
     </dl>
 

@@ -17,7 +17,7 @@ class VotesController < ApplicationController
     @vote.user_id = params[:user_id]
 
     if @vote.save
-      redirect_to "/votes", :notice => "Vote created successfully."
+      redirect_to :back, :notice => "Vote created successfully."
     else
       render 'new'
     end
@@ -34,7 +34,7 @@ class VotesController < ApplicationController
     @vote.user_id = params[:user_id]
 
     if @vote.save
-      redirect_to "/votes", :notice => "Vote updated successfully."
+      redirect_to :back, :notice => "Vote updated successfully."
     else
       render 'edit'
     end
@@ -45,6 +45,6 @@ class VotesController < ApplicationController
 
     @vote.destroy
 
-    redirect_to "/votes", :notice => "Vote deleted."
+    redirect_to :back, :notice => "Vote deleted."
   end
 end

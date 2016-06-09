@@ -45,6 +45,6 @@ class NominationsController < ApplicationController
 
     @nomination.destroy
 
-    redirect_to "/nominations", :notice => "Nomination deleted."
+    redirect_to :back, :notice => "Nomination deleted."
   end
 end

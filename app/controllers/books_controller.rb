@@ -23,7 +23,7 @@ class BooksController < ApplicationController
     @book.cover_url = params[:cover_url]
 
     if @book.save
-      redirect_to "/books", :notice => "Book created successfully."
+      redirect_to :back, :notice => "Book created successfully."
     else
       render 'new'
     end
@@ -44,7 +44,7 @@ class BooksController < ApplicationController
     @book.cover_url = params[:cover_url]
 
     if @book.save
-      redirect_to "/books", :notice => "Book updated successfully."
+      redirect_to :back, :notice => "Book updated successfully."
     else
       render 'edit'
     end
@@ -55,6 +55,6 @@ class BooksController < ApplicationController
 
     @book.destroy
 
-    redirect_to "/books", :notice => "Book deleted."
+    redirect_to :back, :notice => "Book deleted."
   end
 end

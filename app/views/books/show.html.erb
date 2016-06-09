@@ -7,6 +7,7 @@
     <dl class="dl-horizontal">
       <dt>Cover</dt>
       <dd><img src="<%= @book.cover_url%>" width="300"></dd>
+    
 
       <dt>Title</dt>
       <dd><%= @book.title %></dd>
@@ -23,17 +24,7 @@
 
       <dt>Nominated By</dt>
       <dd><%= @book.user.username %></dd>
-
-
-
-
-
-
-
-
-
-
-    </dl>
+</dl>
 
     <div class="btn-group btn-group-justified">
       <a href="/books" class="btn btn-primary">
@@ -48,3 +39,48 @@
     </div>
   </div>
 </div>
+
+
+<ul class="media-list">
+
+          <% @book.comments.each do |comment| %>
+          <li class="media">
+            <div class="media-body">
+              <h6 class="media-heading">
+                <%= link_to comment.user.username, "/users/#{comment.user.id}" %>
+                <small>
+                  <%= time_ago_in_words(comment.created_at) %> ago
+                  <% if comment.user == current_user %>
+                    <a href="/delete_comment/<%= comment.id %>">
+                      <i class="fa fa-trash"></i>
+                    </a>
+                  <% end %>
+                </small>
+              </h6>
+              <%= comment.body %>
+            </div>
+          </li>
+          <% end %>
+
+          <li class="media">
+            <div class="media-body">
+              <form action="/create_comment" method="post">
+                <!-- Hidden input for authenticity token to protect from forgery -->
+                <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+                <input type="hidden" name="book_id" value="<%= @book.id %>">
+
+                <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+                <!-- Label and input for body -->
+                <div class="form-group">
+                  <label for="body" class="sr-only">
+                    Body
+                  </label>
+
+                  <input type="text" id="body" name="body" placeholder="Add a comment..." class="form-control" required>
+                </div>
+              </form>
+            </div>
+          </li>
+        </ul>

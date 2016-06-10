@@ -15,7 +15,7 @@
         <th>Description</th>
         <th>Pages</th>
         <th>User</th>
-        <th>Actions</th>
+        
         <%if current_user.present? && current_user.id == @month.last.user_id %>
         <th>Nominate</th>
         <%end%>
@@ -24,16 +24,12 @@
       <% @books.each do |book| %>
       <tr>
         <td><a href="/books/<%= book.id %>"><img src="<%= book.cover_url %>" width="80"></a></td>
-        <td><%= book.title %></td>
+        <td><a href="/books/<%= book.id %>"><%= book.title %></a></td>
         <td><%= book.author %></td>
         <td><%= truncate(book.description, length: 250) %></td>
        <td><%= book.page_number %></td>
         <td><%= book.user.username %></td>
-        <td>
-          <a href="/books/<%= book.id %>" class="btn btn-primary">Show</a>
-          <a href="/books/<%= book.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_book/<%= book.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
-        </td>
+        
 
 <!-- Trying code for nominate-->
 

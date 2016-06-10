@@ -17,7 +17,7 @@
         <th>Pages</th>
 <th>Voters</th>
 
-        <th>Vote</th>
+        <th>Your Votes</th>
 
       </tr>
 
@@ -25,7 +25,7 @@
       <tr>
         <td><%= nomination.fans.count %></td>
         <td><a href="/books/<%= nomination.book.id %>"><img src="<%= nomination.book.cover_url %>" width="80"></a></td>
-         <td><%= nomination.book.title %></td>
+        <td><a href="/books/<%= nomination.book.id %>"><%= nomination.book.title %></a></td>
          <td><%= nomination.book.author %></td>
          <td><%= truncate(nomination.book.description, length: 250) %></td>
         <td><%= nomination.book.page_number %></td>
@@ -48,7 +48,7 @@
           <% vote = Vote.find_by(:nomination_id => nomination.id, :user_id => current_user.id) %>
           <% if vote.present? %>
             <a href="/delete_vote/<%= vote.id %>" class="btn btn-default">
-             Delete Vote for <%=@month.started_on.strftime("%B %Y")%>
+             Delete Vote
             </a>
 
 

@@ -40,10 +40,10 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="/books">Books</a></li>
-          <li><a href="/months">Meetings</a></li>
+          <li><a href="/books"><i class="fa fa-book" aria-hidden="true"></i> Books</a></li>
+          <li><a href="/months"><i class="fa fa-glass" aria-hidden="true"></i> Meetings</a></li>
           <%if current_user.present?%>
-          <li><a href="/users/<%=current_user.id%>">My Votes</a></li>
+          <li><a href="/users/<%=current_user.id%>"><i class="fa fa-heart" aria-hidden="true"></i> My Votes</a></li>
           <%end%>
 
           <%if current_user.present? && current_user.username == "Meghan" %>

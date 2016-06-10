@@ -9,14 +9,14 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Vote Count</th>cd 
+        <th>Vote Count</th>
         <th>Cover</th>
          <th>Title</th>
         <th>Author</th>
         <th>Description</th>
         <th>Pages</th>
 <th>Voters</th>
-        
+
         <th>Vote</th>
 
       </tr>
@@ -40,7 +40,7 @@
 
 
         </td>
-        
+
 
     <!-- Trying different code for vote-->
 
@@ -75,17 +75,7 @@
               <% end %>
             </form>
 
-
-
-
         </td>
-
-
-
-
-
-
-
 
       </tr>
       <% end %>
@@ -95,58 +85,18 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="btn-group btn-group-justified">
       <a href="/months" class="btn btn-primary">
         Back
       </a>
+      <%if current_user.present? && current_user.username == "Meghan" %>
       <a href="/months/<%= @month.id %>/edit" class="btn btn-warning">
         Edit
       </a>
       <a href="/delete_month/<%= @month.id %>" class="btn btn-danger" rel="nofollow">
         Delete
       </a>
+      <%end%>
     </div>
   </div>
 </div>

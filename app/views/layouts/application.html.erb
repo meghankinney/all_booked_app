@@ -45,12 +45,12 @@
           <li><a href="/users">Users</a></li>
 
           <%if current_user.present? && current_user.username == "Meghan" %>
-          <li><a href="/votes">Votes Index</a></li>
-          <li><a href="/comments">Comments Index</a></li>
+          <li class="active"><a href="/votes">Votes Index</a></li>
+          <li class="active"><a href="/comments">Comments Index</a></li>
 
-          <li><a href="/nominations">Nominations Index</a></li>
+          <li class="active"><a href="/nominations">Nominations Index</a></li>
 
-          <li><a href="/rails/info">Sitemap</a></li>
+          <li class="active"><a href="/rails/info">Sitemap</a></li>
           <%end%>
         </ul>
 

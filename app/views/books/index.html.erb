@@ -16,7 +16,9 @@
         <th>Pages</th>
         <th>User</th>
         <th>Actions</th>
+        <%if current_user.present? && current_user.id == @month.last.user_id %>
         <th>Nominate</th>
+        <%end%>
       </tr>
 
       <% @books.each do |book| %>
@@ -35,6 +37,7 @@
 
 <!-- Trying code for nominate-->
 
+        <%if current_user.present? && current_user.id == @month.last.user_id %>
    <td>
           <% nomination = Nomination.find_by(:book_id => book.id, :month_id => @month.last.id) %>
           <% if nomination.present? %>
@@ -44,27 +47,6 @@
 
 
           <% else %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   <form action="/create_nomination" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
@@ -92,6 +74,7 @@
 
 
         </td>
+        <% end %>
       </tr>
       <% end %>
     </table>

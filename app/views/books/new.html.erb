@@ -22,6 +22,42 @@
 
 
         <input type="hidden" name="user_id" value="<%= current_user.id %>">
+      
+      <!-- Label and input for cover_url -->
+      <div class="form-group">
+        <label for="cover_url" class="control-label">
+          Cover url
+        </label>
+
+        <input type="text" id="cover_url" name="cover_url" placeholder="Cover url" class="form-control" value="<%= @book.cover_url %>">
+      </div>
+      
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @book.title %>">
+      </div>
+      
+      <!-- Label and input for author -->
+      <div class="form-group">
+        <label for="author" class="control-label">
+          Author
+        </label>
+
+        <input type="text" id="author" name="author" placeholder="Author" class="form-control" value="<%= @book.author %>">
+      </div>
+
+  <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @book.description %></textarea>
+      </div>
 
 
       <!-- Label and input for page_number -->
@@ -33,41 +69,11 @@
         <input type="text" id="page_number" name="page_number" placeholder="Page number" class="form-control" value="<%= @book.page_number %>">
       </div>
 
-      <!-- Label and input for description -->
-      <div class="form-group">
-        <label for="description" class="control-label">
-          Description
-        </label>
+    
+      
+      
 
-        <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @book.description %></textarea>
-      </div>
-
-      <!-- Label and input for author -->
-      <div class="form-group">
-        <label for="author" class="control-label">
-          Author
-        </label>
-
-        <input type="text" id="author" name="author" placeholder="Author" class="form-control" value="<%= @book.author %>">
-      </div>
-
-      <!-- Label and input for title -->
-      <div class="form-group">
-        <label for="title" class="control-label">
-          Title
-        </label>
-
-        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @book.title %>">
-      </div>
-
-      <!-- Label and input for cover_url -->
-      <div class="form-group">
-        <label for="cover_url" class="control-label">
-          Cover url
-        </label>
-
-        <input type="text" id="cover_url" name="cover_url" placeholder="Cover url" class="form-control" value="<%= @book.cover_url %>">
-      </div>
+     
 
       <button class="btn btn-success">
         Create Book

@@ -6,10 +6,10 @@
   <div class="col-md-12">
     <dl class="dl-horizontal">
       <dt>Book</dt>
-      <dd><%= @nomination.book_id %></dd>
+      <dd><%= @nomination.book.title %></dd>
 
-      <dt>Month</dt>
-      <dd><%= @nomination.month_id %></dd>
+      <dt>Meeting</dt>
+      <dd><%= @nomination.month.started_on.strftime("%B %Y") %></dd>
 
     </dl>
 
@@ -17,9 +17,7 @@
       <a href="/nominations" class="btn btn-primary">
         Back
       </a>
-      <a href="/nominations/<%= @nomination.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
+    
       <a href="/delete_nomination/<%= @nomination.id %>" class="btn btn-danger" rel="nofollow">
         Delete
       </a>

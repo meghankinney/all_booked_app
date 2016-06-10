@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
     Nominations
-    <a href="/nominations/new" class="btn btn-lg btn-success">New Nomination</a>
+
   </h1>
 </div>
 
@@ -13,75 +13,22 @@
         <th>Book</th>
         <th>Month</th>
         <th>Actions</th>
-        <th>Vote</th>
+
       </tr>
 
       <% @nominations.each do |nomination| %>
       <tr>
-        <td><img src="<%= nomination.book.cover_url %>" width="80"></td>
-        <td><%= nomination.book.title %></td>
-        <td><%= nomination.month.started_on.strftime("%B %Y") %></td>
+        <td><a href="/books/<%=nomination.book_id%>"><img src="<%= nomination.book.cover_url %>" width="80"></a></td>
+        <td><a href="/books/<%=nomination.book_id%>"><%= nomination.book.title %></a></td>
+        <td><a href="/months/<%= nomination.month_id%>"><%= nomination.month.started_on.strftime("%B %Y") %></a></td>
         <td>
           <a href="/nominations/<%= nomination.id %>" class="btn btn-primary">Show</a>
-          <a href="/nominations/<%= nomination.id %>/edit" class="btn btn-warning">Edit</a>
+
           <a href="/delete_nomination/<%= nomination.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
 
-    <!-- Trying different code for vote-->
-
-<td>
-          <% vote = Vote.find_by(:nomination_id => nomination.id, :user_id => current_user.id) %>
-          <% if vote.present? %>
-            <a href="/delete_vote/<%= vote.id %>" class="btn btn-default">
-             Delete Vote
-            </a>
 
 
-          <% else %>
-
- <form action="/create_vote" method="post">
-      <!-- Hidden input for authenticity token to protect from forgery -->
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-      <!-- Label and input for nomination_id -->
-
-        <input type="hidden" name="nomination_id" value="<%= nomination.id %>">
-
-
-      <!-- Label and input for user_id -->
-
-
-        <input type="hidden" name="user_id" value="<%= current_user.id %>">
-              <button class="btn btn-success">
-                Vote
-              </button>
-
-
-              <% end %>
-            </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        </td>
       </tr>
       <% end %>
     </table>

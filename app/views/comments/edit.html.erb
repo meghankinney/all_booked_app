@@ -19,13 +19,9 @@
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
       <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
 
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @comment.user_id %>">
-      </div>
+
+        <input type="hidden"  name="user_id" value="<%= @comment.user_id %>">
 
       <!-- Label and input for body -->
       <div class="form-group">
@@ -33,17 +29,14 @@
           Body
         </label>
 
-        <textarea id="body" name="body" placeholder="Body" class="form-control" rows="3"><%= @comment.body %></textarea>
+        <textarea id="body" name="body" placeholder="<%=@comment.body%>" class="form-control" rows="3"><%= @comment.body %></textarea>
       </div>
 
       <!-- Label and input for book_id -->
-      <div class="form-group">
-        <label for="book_id" class="control-label">
-          Book
-        </label>
+    
 
-        <input type="text" id="book_id" name="book_id" placeholder="Book" class="form-control" value="<%= @comment.book_id %>">
-      </div>
+        <input type="hidden"  name="book_id"  value="<%= @comment.book_id %>">
+     
 
       <button class="btn btn-warning">
         Update Comment

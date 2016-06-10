@@ -6,13 +6,13 @@
   <div class="col-md-12">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @comment.user_id %></dd>
+      <dd><%= @comment.user.username %></dd>
 
       <dt>Body</dt>
       <dd><%= @comment.body %></dd>
 
       <dt>Book</dt>
-      <dd><%= @comment.book_id %></dd>
+      <dd><%= @comment.book.title %></dd>
 
     </dl>
 

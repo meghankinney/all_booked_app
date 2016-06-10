@@ -55,7 +55,7 @@ class BooksController < ApplicationController
 
     @book.destroy
 
-    redirect_to :back, :notice => "Book deleted."
+    redirect_to "/books", :notice => "Book deleted."
 end
 
 

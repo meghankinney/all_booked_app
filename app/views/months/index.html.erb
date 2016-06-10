@@ -19,7 +19,12 @@
       <tr>
         <td><%= month.started_on.strftime("%B %Y") %></td>
         <td><%= month.user.username %></td>
-        <td><%= month.book.try(:title) %></td>
+
+        <% if month.book_id.present? %>
+        <td><a href="/books/<%= month.book_id %>"><%= month.book.try(:title) %></a></td>
+  <%else%>
+        <td><p>Voting in progress!</p></td>
+        <%end%>
         <td>
           <a href="/months/<%= month.id %>" class="btn btn-primary">Show</a>
           <a href="/months/<%= month.id %>/edit" class="btn btn-warning">Edit</a>

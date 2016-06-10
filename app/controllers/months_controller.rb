@@ -1,6 +1,6 @@
 class MonthsController < ApplicationController
   def index
-    @months = Month.all
+    @months = Month.all.order(started_on: :desc)
   end
 
   def show

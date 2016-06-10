@@ -33,7 +33,7 @@
           Hostess
         </label>
 <div>
-        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :username), :class => "form-control") %>
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :username), :class => "form-control", include_blank: true) %>
       </div>
       </div>
 
@@ -44,7 +44,7 @@
       Winner
     </label>
     <div >
-      <%= select_tag(:book_id, options_from_collection_for_select(Book.all.order(created_at: :desc), :id, :title), :class => "form-control") %>
+      <%= select_tag(:book_id, options_from_collection_for_select(Book.all.order(created_at: :desc), :id, :title), :class => "form-control", include_blank: true) %>
     </div>
 
 

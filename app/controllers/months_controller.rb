@@ -16,6 +16,7 @@ class MonthsController < ApplicationController
     @month = Month.new
     @month.started_on = params[:started_on]
     @month.user_id = params[:user_id]
+    @month.book_id = params[:book_id]
 
     if @month.save
       redirect_to :back, :notice => "Month created successfully."
@@ -33,6 +34,7 @@ class MonthsController < ApplicationController
 
     @month.started_on = params[:started_on]
     @month.user_id = params[:user_id]
+    @month.book_id = params[:book_id]
 
     if @month.save
       redirect_to :back, :notice => "Month updated successfully."
@@ -48,4 +50,6 @@ class MonthsController < ApplicationController
 
     redirect_to :back, :notice => "Month deleted."
   end
+  
+   
 end

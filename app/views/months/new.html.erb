@@ -24,7 +24,7 @@
           Meeting Date
         </label>
 
-        <input type="text" id="started_on" name="started_on" placeholder="Started on" class="form-control" value="<%= @month.started_on %>">
+        <input type="text" id="started_on" name="started_on" placeholder="mm/dd/yyyy" class="form-control" value="<%= @month.started_on %>">
       </div>
 
       <!-- Label and input for user_id -->
@@ -37,15 +37,8 @@
       <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :username), :class => "form-control") %>
     </div>
 
-     <!-- Label and input for book_id -->
 
-   <div class="form-group">
-    <label for="book_id" class="control-label">
-      Winner
-    </label>
-    <div >
-      <%= select_tag(:book_id, options_from_collection_for_select(Book.all, :id, :title), :class => "form-control") %>
-    </div>
+
 
 
 

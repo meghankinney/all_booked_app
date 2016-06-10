@@ -11,6 +11,7 @@
       <tr>
         <th>Month</th>
         <th>Hostess</th>
+        <th>Winner</th>
         <th>Actions</th>
       </tr>
 
@@ -18,6 +19,7 @@
       <tr>
         <td><%= month.started_on.strftime("%B %Y") %></td>
         <td><%= month.user.username %></td>
+        <td><%= month.book.try(:title) %></td>
         <td>
           <a href="/months/<%= month.id %>" class="btn btn-primary">Show</a>
           <a href="/months/<%= month.id %>/edit" class="btn btn-warning">Edit</a>

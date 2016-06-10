@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Edit Month #<%= @month.id %></h3>
+  <h3>Edit <%= @month.started_on.strftime("%B %Y") %></h3>
 </div>
 
 <div class="row">
@@ -32,8 +32,9 @@
         <label for="user_id" class="control-label">
           Hostess
         </label>
-
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @month.user_id %>">
+<div>
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :username), :class => "form-control") %>
+      </div>
       </div>
 
     <!-- Label and input for book_id -->
@@ -43,7 +44,7 @@
       Winner
     </label>
     <div >
-      <%= select_tag(:book_id, options_from_collection_for_select(Book.all, :id, :title), :class => "form-control") %>
+      <%= select_tag(:book_id, options_from_collection_for_select(Book.all.order(created_at: :desc), :id, :title), :class => "form-control") %>
     </div>
 
 

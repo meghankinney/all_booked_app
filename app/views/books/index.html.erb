@@ -14,8 +14,8 @@
         <th>Author</th>
         <th>Description</th>
         <th>Pages</th>
-        <th>User</th>
-        
+        <th>Suggested By</th>
+
         <%if current_user.present? && current_user.id == @month.last.user_id %>
         <th>Nominate</th>
         <%end%>
@@ -29,7 +29,7 @@
         <td><%= truncate(book.description, length: 250) %></td>
        <td><%= book.page_number %></td>
         <td><%= book.user.username %></td>
-        
+
 
 <!-- Trying code for nominate-->
 

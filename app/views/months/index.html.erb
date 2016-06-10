@@ -14,12 +14,14 @@
         <th>Month</th>
         <th>Hostess</th>
         <th>Winner</th>
+        <%if current_user.present? && current_user.username == "Meghan" %>
         <th>Actions</th>
+         <% end %>
       </tr>
 
       <% @months.each do |month| %>
       <tr>
-        <td><%= month.started_on.strftime("%B %Y") %></td>
+        <td><a href="/months/<%= month.id %>"><%= month.started_on.strftime("%B %Y") %></a></td>
         <td><%= month.user.username %></td>
 
         <% if month.book_id.present? %>
@@ -28,7 +30,7 @@
         <td><p>Voting in progress!</p></td>
         <%end%>
         <td>
-          <a href="/months/<%= month.id %>" class="btn btn-primary">Show</a>
+          
           <%if current_user.present? && current_user.username == "Meghan" %>
           <a href="/months/<%= month.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_month/<%= month.id %>" class="btn btn-danger" rel="nofollow">Delete</a>

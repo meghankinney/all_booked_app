@@ -1,5 +1,7 @@
 <div class="page-header">
-  <h3><%= @month.started_on.strftime("%B %Y") %> Nominations</h3>
+  <h3><%= @month.started_on.strftime("%B %Y") %> Nominations
+ 
+  </h3>
   <h5>Hostess: <%=@month.user.username%></h5>
 </div>
 
@@ -32,10 +34,10 @@
 
             <td>
             <% if nomination.fans.any? %>
-              <%= nomination.fans.pluck(:username).to_sentence %>
+              <small> <%= nomination.fans.pluck(:username).to_sentence %></small>
 
               <% else %>
-              <small class="text-muted">be the first to vote for this</small>
+              <small class="text-muted">be the first to vote for this book</small>
               <% end %>
 
 
@@ -84,12 +86,11 @@
 </div>
 
 
-
+<%if current_user.present? && current_user.username == "Meghan" %>
     <div class="btn-group btn-group-justified">
       <a href="/months" class="btn btn-primary">
         Back
       </a>
-      <%if current_user.present? && current_user.username == "Meghan" %>
       <a href="/months/<%= @month.id %>/edit" class="btn btn-warning">
         Edit
       </a>

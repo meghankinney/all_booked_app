@@ -14,23 +14,19 @@
         <th>Description</th>
         <th>Pages</th>
         <th>User</th>
-        <th>Actions</th>
+       
 
       </tr>
 
       <% @user.votes.order(created_at: :desc).each do |vote| %>
       <tr>
         <td><a href="/books/<%= vote.nomination.book_id %>"><img src="<%= vote.nomination.book.cover_url %>" width="80"></a></td>
-        <td><%= vote.nomination.book.title %></td>
+        <td><a href="/books/<%= vote.nomination.book_id %>"><%= vote.nomination.book.title %></a></td>
         <td><%= vote.nomination.book.author %></td>
         <td><%= truncate(vote.nomination.book.description, length: 250) %></td>
        <td><%= vote.nomination.book.page_number %></td>
         <td><%= vote.nomination.book.user.username %></td>
-        <td>
-          <a href="/books/<%= vote.nomination.book_id %>" class="btn btn-primary">Show</a>
-          <a href="/books/<%= vote.nomination.book_id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_book/<%= vote.nomination.book_id %>" class="btn btn-danger" rel="nofollow">Delete</a>
-        </td>
+
 
       </tr>
       <% end %>

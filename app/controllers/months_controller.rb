@@ -19,7 +19,7 @@ class MonthsController < ApplicationController
     @month.book_id = params[:book_id]
 
     if @month.save
-      redirect_to :back, :notice => "Month created successfully."
+      redirect_to "/months", :notice => "Month created successfully."
     else
       render 'new'
     end
@@ -37,7 +37,7 @@ class MonthsController < ApplicationController
     @month.book_id = params[:book_id]
 
     if @month.save
-      redirect_to :back, :notice => "Month updated successfully."
+      redirect_to "/months", :notice => "Month updated successfully."
     else
       render 'edit'
     end
@@ -48,8 +48,8 @@ class MonthsController < ApplicationController
 
     @month.destroy
 
-    redirect_to :back, :notice => "Month deleted."
+    redirect_to "/months", :notice => "Month deleted."
   end
-  
-   
+
+
 end

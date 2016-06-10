@@ -27,7 +27,7 @@
         <td><a href="/books/<%= nomination.book.id %>"><img src="<%= nomination.book.cover_url %>" width="80"></a></td>
          <td><%= nomination.book.title %></td>
          <td><%= nomination.book.author %></td>
-         <td><%= nomination.book.description %></td>
+         <td><%= truncate(nomination.book.description, length: 250) %></td>
         <td><%= nomination.book.page_number %></td>
 
             <td>
@@ -68,7 +68,7 @@
 
         <input type="hidden" name="user_id" value="<%= current_user.id %>">
               <button class="btn btn-success">
-                Vote for <%=@month.started_on.strftime("%B %Y")%>
+                Vote
               </button>
 
 

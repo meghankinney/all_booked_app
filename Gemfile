@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "seed_dump"
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
